@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node app.js",
     "server": "nodemon app.js",
     "client": "npm start --prefix super-mart",
+    "build": "npm run build --prefix super-mart",
     "dev": "concurrently \"npm start\" \"npm run super-mart\""
   },
   "author": "",
