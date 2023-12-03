@@ -9,6 +9,9 @@ const VerificationToken = require("../models/verificationToken");
 const nodemailer = require("nodemailer");
 const ResetOtp = require("../models/resetOtp");
 var smtpTransport = require("nodemailer-smtp-transport");
+import dotenv from "dotenv";
+
+dotenv.config();
 
 // for sign up
 router.post(
