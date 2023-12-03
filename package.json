@@ -6,8 +6,8 @@
    "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm start\" \"npm run client\""
+    "client": "npm start --prefix super-mart",
+    "dev": "concurrently \"npm start\" \"npm run super-mart\""
   },
   "author": "",
   "license": "ISC",
