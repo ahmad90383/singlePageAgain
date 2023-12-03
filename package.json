@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
    "scripts": {
-    "start": "node index.js",
-    "server": "nodemon index.js",
+    "start": "node app.js",
+    "server": "nodemon app.js",
     "client": "npm start --prefix super-mart",
     "dev": "concurrently \"npm start\" \"npm run super-mart\""
   },
