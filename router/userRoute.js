@@ -66,14 +66,14 @@ router.post(
 
       // sending email to the user
       try {
-        const transporter = nodemailer.createTransport({
+        let transporter = nodemailer.createTransport({
           service: "gmail",
           auth: {
             user: process.env.USER,
             pass: process.env.PASSWORD,
           },
         });
-        const mailOptions = {
+        let mailOptions = {
           from: process.env.USER,
           to: newUser.email,
           subject: "sending email with react and node.js",
@@ -81,13 +81,14 @@ router.post(
         };
 
         try {
-          transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-              console.log("error", error);
-            } else {
-              console.log("email send", info.response);
-            }
+          transporter
+        .sendMail(mailOptions)
+        .then(() => {
+          res.status(201).send({
+            success: "Pending",
+            message: "verification email has been sent to your account",
           });
+        })
         } catch (error) {
           console.log(error);
         }
