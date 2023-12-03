@@ -56,10 +56,10 @@ app.use(require("./router/userRoute"));
 app.use(require("./router/postOrder"));
 
 // Serve static files
-app.use(express.static(path.join(__dirname, "./super-mart/build")));
-app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./super-mart/build", "index.html"));
-});
+// app.use(express.static(path.join(__dirname, "./super-mart/build")));
+// app.get("*", function (req, res) {
+//   res.sendFile(path.join(__dirname, "./super-mart/build", "index.html"));
+// });
 
 app.get("/", (req, res) => {
   res.send("Hello world");
@@ -74,6 +74,14 @@ app.use((err, req, res, next) => {
 // Default error handler
 app.use((req, res, next) => {
   res.status(404).json({ message: "Route not found" });
+});
+
+// Serve static files
+app.use(express.static(path.join(__dirname, "./super-mart/build")));
+
+// Handle all remaining routes by serving the index.html file
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./super-mart/build/index.html"));
 });
 
 app.listen(port, () => {
